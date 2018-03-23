@@ -1,3 +1,6 @@
 .sass-cache/
 *.css.map
 .idea/
+test/node_modules/
+test/css/
+test/js/
