@@ -31,7 +31,7 @@ gulp.task('scss', function () {
 
 gulp.task('babel', function () {
     gulp.src(es6Path)
-        .pipe(scss())
+        .pipe(babel())
         .pipe(gulp.dest(es5Path));
 });
 
