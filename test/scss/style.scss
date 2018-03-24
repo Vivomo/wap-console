@@ -17,16 +17,17 @@ $border: 2px solid $theme;
     bottom: 20px;
     background: rgba(#000, 0.5);
     border: $border;
+    color: #fff;
 
     .console-input {
         display: block;
         padding: 10px;
         width: 100%;
         height: 300px;
+        color: #fff;
         background: transparent;
         border: 0;
         border-top: $border;
-        color: #fff;
         outline: 0;
         resize: none;
 
