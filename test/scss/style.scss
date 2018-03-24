@@ -1,4 +1,5 @@
 $theme: #097125;
+$border: 2px solid $theme;
 
 * {
     margin: 0;
@@ -15,24 +16,26 @@ $theme: #097125;
     right: 20px;
     bottom: 20px;
     background: rgba(#000, 0.5);
-    border: 1px solid $theme;
+    border: $border;
 
     .console-input {
         display: block;
+        padding: 10px;
         width: 100%;
-        height: 150px;
+        height: 300px;
         background: transparent;
-        border: 1px solid $theme;
+        border: 0;
+        border-top: $border;
+        color: #fff;
         outline: 0;
         resize: none;
+
+        &::placeholder{
+            color: #fff;
+        }
     }
 
     .console-output {
-        position: absolute;
-        top: 190px;
-        left: 20px;
-        right: 20px;
-        bottom: 20px;
-        border: 1px solid $theme;
+        border: $border;
     }
 }
