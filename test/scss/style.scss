@@ -37,5 +37,21 @@ $border: 2px solid $theme;
 
     .console-output {
         border: $border;
+
+        &:empty{
+            border: 0;
+        }
+    }
+
+    .opt-wrap {
+        padding: 10px 0;
+        button {
+            padding: 0 10px;
+            font-size: 1.5em;
+            color: #fff;
+            border: $border;
+            border-radius: 6px;
+            background: transparent;
+        }
     }
 }
