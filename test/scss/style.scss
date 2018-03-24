@@ -7,6 +7,8 @@ $border: 2px solid $theme;
     box-sizing: border-box;
 }
 
+
+
 .wap-console-wrap {
     position: fixed;
     z-index: 9999;
@@ -18,6 +20,10 @@ $border: 2px solid $theme;
     background: rgba(#000, 0.5);
     border: $border;
     color: #fff;
+
+    .fr {
+        float: right;
+    }
 
     .console-input {
         display: block;
@@ -37,10 +43,34 @@ $border: 2px solid $theme;
     }
 
     .console-output {
-        border: $border;
 
-        &:empty{
-            border: 0;
+        .input-log, .output-log {
+            position: relative;
+            padding-left: 30px;
+            line-height: 2;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0.5em;
+                width: 0.8em;
+                height: 0.8em;
+                border: $border;
+                transform: rotate(45deg);
+            }
+        }
+
+        .input-log:before {
+            left: 0;
+            border-color: $theme $theme transparent transparent;
+        }
+
+        .output-log {
+            border-bottom: 1px solid rgba($theme, 0.5);
+            &:before {
+                left: 0.5em;
+                border-color:  transparent transparent $theme $theme;
+            }
         }
     }
 
@@ -53,6 +83,7 @@ $border: 2px solid $theme;
             border: $border;
             border-radius: 6px;
             background: transparent;
+            outline: 0;
         }
     }
 }
