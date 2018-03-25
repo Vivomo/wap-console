@@ -27,6 +27,10 @@ $border: 2px solid $theme;
         height: 2vw;
     }
 
+    &.hide {
+        display: none;
+    }
+
     .fr {
         float: right;
     }
