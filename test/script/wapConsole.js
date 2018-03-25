@@ -37,16 +37,16 @@ class WapConsole {
     /**
      * print sth
      * @param type
-     * @param sth
+     * @param args
      */
-    console(type, sth) {
+    console(type, ...args) {
         let content = document.createElement('div');
         if (type === WapConsole.logType.input) {
             content.className = 'input-log';
         } else {
             content.className = 'output-log';
         }
-        content.innerHTML = sth;
+        content.innerHTML = WapConsole._createHtml(...args);
         this.output.appendChild(content);
     }
 
@@ -60,6 +60,16 @@ class WapConsole {
             this.console(WapConsole.logType.output, ...args);
             old(...args);
         }
+    }
+
+    /**
+     * create log's html
+     *  future : support object fields
+     * @param args
+     * @private
+     */
+    static _createHtml(...args) {
+        return args.map((arg) => (`<span class="${typeof arg}">${arg}</span>`)).join(' ');
     }
 
 
