@@ -20,6 +20,12 @@ $border: 2px solid $theme;
     background: rgba(#000, 0.5);
     border: $border;
     color: #fff;
+    overflow: hidden;
+
+    &.min {
+        width: 2vw;
+        height: 2vw;
+    }
 
     .fr {
         float: right;
@@ -84,7 +90,7 @@ $border: 2px solid $theme;
 
     .opt-wrap {
         padding: 10px 0;
-        button {
+        .btn {
             padding: 0 10px;
             font-size: 1.2em;
             color: #fff;
@@ -93,5 +99,8 @@ $border: 2px solid $theme;
             background: transparent;
             outline: 0;
         }
+
+
     }
+
 }

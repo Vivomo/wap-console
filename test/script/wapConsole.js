@@ -7,12 +7,25 @@ class WapConsole {
     }
 
     constructor() {
-        let wrap = document.querySelector('.wap-console-wrap');
+        let wrap = this.wrap = document.querySelector('.wap-console-wrap');
         this.input = wrap.querySelector('.console-input');
         this.output = wrap.querySelector('.console-output');
+        this.addEventListener();
+    }
 
+    /**
+     * add event listener
+     */
+    addEventListener() {
+        let wrap = this.wrap;
+        wrap.addEventListener('click', () => {
+            if (wrap.classList.contains('min')) {
+                this.max();
+            }
+        }, true);
         wrap.querySelector('.run').addEventListener('click', this.run.bind(this));
         wrap.querySelector('.clear').addEventListener('click', this.clear.bind(this));
+        wrap.querySelector('.min').addEventListener('click', this.min.bind(this));
         this._overwriteSystemConsoleLog();
     }
 
@@ -48,6 +61,20 @@ class WapConsole {
         }
         content.innerHTML = WapConsole._createHtml(...args);
         this.output.appendChild(content);
+    }
+
+    /**
+     * Minimize the console-wrap
+     */
+    min() {
+        this.wrap.classList.add('min');
+    }
+
+    /**
+     * Maximizing the console-wrap
+     */
+    max() {
+        this.wrap.classList.remove('min');
     }
 
     /**
