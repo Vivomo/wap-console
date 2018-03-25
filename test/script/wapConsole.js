@@ -26,6 +26,7 @@ class WapConsole {
         wrap.querySelector('.run').addEventListener('click', this.run.bind(this));
         wrap.querySelector('.clear').addEventListener('click', this.clear.bind(this));
         wrap.querySelector('.min').addEventListener('click', this.min.bind(this));
+        wrap.querySelector('.close').addEventListener('click', this.close.bind(this));
         this._overwriteSystemConsoleLog();
     }
 
@@ -48,6 +49,27 @@ class WapConsole {
     }
 
     /**
+     * Minimize the console-wrap
+     */
+    min() {
+        this.wrap.classList.add('min');
+    }
+
+    /**
+     * Maximizing the console-wrap
+     */
+    max() {
+        this.wrap.classList.remove('min');
+    }
+
+    /**
+     * close the console
+     */
+    close() {
+        this.wrap.classList.add('hide');
+    }
+
+    /**
      * print sth
      * @param type
      * @param args
@@ -61,20 +83,6 @@ class WapConsole {
         }
         content.innerHTML = WapConsole._createHtml(...args);
         this.output.appendChild(content);
-    }
-
-    /**
-     * Minimize the console-wrap
-     */
-    min() {
-        this.wrap.classList.add('min');
-    }
-
-    /**
-     * Maximizing the console-wrap
-     */
-    max() {
-        this.wrap.classList.remove('min');
     }
 
     /**
