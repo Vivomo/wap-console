@@ -71,6 +71,14 @@ $border: 2px solid $theme;
                 left: 0.5em;
                 border-color:  transparent transparent $theme $theme;
             }
+
+            .undefined, .null {
+                opacity: 0.5;
+            }
+
+            .number {
+                color: purple;
+            }
         }
     }
 
