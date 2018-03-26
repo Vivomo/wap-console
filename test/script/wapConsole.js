@@ -7,6 +7,8 @@ class WapConsole {
     }
 
     constructor() {
+        this.history = [];
+        this.historyIndex = null;
         let wrap = this.wrap = document.querySelector('.wap-console-wrap');
         this.input = wrap.querySelector('.console-input');
         this.output = wrap.querySelector('.console-output');
@@ -27,6 +29,8 @@ class WapConsole {
         wrap.querySelector('.clear').addEventListener('click', this.clear.bind(this));
         wrap.querySelector('.min').addEventListener('click', this.min.bind(this));
         wrap.querySelector('.close').addEventListener('click', this.close.bind(this));
+        wrap.querySelector('.prev').addEventListener('click', this.prev.bind(this));
+        wrap.querySelector('.next').addEventListener('click', this.next.bind(this));
         this._overwriteSystemConsoleLog();
     }
 
@@ -35,10 +39,23 @@ class WapConsole {
      */
     run() {
         let code = this.input.value;
+        this._addHistory(code);
         this.input.value = '';
         this.console(WapConsole.logType.input, code);
         let result = eval(code);
         this.console(WapConsole.logType.output, result);
+    }
+
+    /**
+     *
+     * @param code
+     * @private
+     */
+    _addHistory(code) {
+        if (this.history[this.history.length - 1] !== code) {
+            this.history.push(code);
+        }
+        this.historyIndex = null;
     }
 
     /**
@@ -60,6 +77,27 @@ class WapConsole {
      */
     max() {
         this.wrap.classList.remove('min');
+    }
+
+    /**
+     *
+     */
+    prev() {
+        if (this.historyIndex === null) {
+            this.historyIndex = this.history.length - 1;
+        } else if (this.historyIndex > 0) {
+            this.historyIndex --;
+        } else {
+            return;
+        }
+        this.input.value = this.history[this.historyIndex];
+    }
+
+    next() {
+        if (this.historyIndex !== null && this.historyIndex < this.history.length - 1) {
+            this.historyIndex ++;
+            this.input.value = this.history[this.historyIndex];
+        }
     }
 
     /**
