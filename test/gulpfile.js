@@ -2,6 +2,8 @@ let gulp = require('gulp'),
     scss = require('gulp-sass'),
     babel = require('gulp-babel'),
     concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    rename = require('gulp-rename'),
     es6Path = './script/**/*.js',
     es5Path = './js',
     cssPath = './css',
@@ -40,13 +42,19 @@ gulp.task('babel', function () {
         .pipe(gulp.dest(es5Path));
 });
 
-gulp.task('concat', function () {
+gulp.task('build', function () {
+    gulp.src(es6Path)
+        .pipe(gulp.dest('../src'));
+
     gulp.src(es6Path)
         .pipe(babel({
             presets: ['env']
         }))
-        .pipe(concat('index.js'))
-        .pipe(gulp.dest('./dist'));
+        .pipe(concat('wapConsole.js'))
+        .pipe(gulp.dest('./dist'))
+        .pipe(uglify())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('../src'));
 });
 
 gulp.task('reload', function () {
