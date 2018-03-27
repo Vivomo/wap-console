@@ -1,6 +1,7 @@
 let gulp = require('gulp'),
     scss = require('gulp-sass'),
     babel = require('gulp-babel'),
+    concat = require('gulp-concat'),
     es6Path = './script/**/*.js',
     es5Path = './js',
     cssPath = './css',
@@ -35,6 +36,15 @@ gulp.task('babel', function () {
             presets: ['env']
         }))
         .pipe(gulp.dest(es5Path));
+});
+
+gulp.task('concat', function () {
+    gulp.src(es6Path)
+        .pipe(babel({
+            presets: ['env']
+        }))
+        .pipe(concat('index.js'))
+        .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('reload', function () {
