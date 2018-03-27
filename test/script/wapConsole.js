@@ -9,12 +9,12 @@ class WapConsole {
     constructor() {
         this.history = [];
         this.historyIndex = null;
-        let wrap = this.wrap = document.querySelector('.wap-console-wrap');
-        if (!wrap) {
+        this.wrap = document.querySelector('.wap-console-wrap');
+        if (!this.wrap) {
             this.init();
         }
-        this.input = wrap.querySelector('.console-input');
-        this.output = wrap.querySelector('.console-output');
+        this.input = this.wrap.querySelector('.console-input');
+        this.output = this.wrap.querySelector('.console-output');
         this.addEventListener();
     }
 
