@@ -10,9 +10,23 @@ class WapConsole {
         this.history = [];
         this.historyIndex = null;
         let wrap = this.wrap = document.querySelector('.wap-console-wrap');
+        if (!wrap) {
+            this.init();
+        }
         this.input = wrap.querySelector('.console-input');
         this.output = wrap.querySelector('.console-output');
         this.addEventListener();
+    }
+
+    init() {
+        let wrap = this.wrap = document.createElement('div');
+        wrap.className = 'wap-console-wrap';
+        wrap.innerHTML = wapConsoleHTML;
+        document.body.appendChild(wrap);
+
+        let style = document.createElement('style');
+        style.innerText = wapConsoleStyle;
+        document.head.appendChild(style);
     }
 
     /**
