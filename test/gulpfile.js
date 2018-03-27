@@ -26,7 +26,9 @@ gulp.task('browser', function () {
 
 gulp.task('scss', function () {
     gulp.src(scssSrc)
-        .pipe(scss())
+        .pipe(scss({
+            outputStyle: 'compressed'
+        }))
         .pipe(gulp.dest(cssPath));
 });
 

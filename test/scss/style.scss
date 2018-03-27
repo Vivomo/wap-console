@@ -1,14 +1,6 @@
 $theme: #097125;
 $border: 2px solid $theme;
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-
 .wap-console-wrap {
     position: fixed;
     z-index: 9999;
@@ -21,6 +13,13 @@ $border: 2px solid $theme;
     border: $border;
     color: #fff;
     overflow: hidden;
+    box-sizing: border-box;
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
     &.min {
         width: 2vw;
