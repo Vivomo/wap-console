@@ -31,7 +31,9 @@ gulp.task('scss', function () {
 
 gulp.task('babel', function () {
     gulp.src(es6Path)
-        .pipe(babel())
+        .pipe(babel({
+            presets: ['env']
+        }))
         .pipe(gulp.dest(es5Path));
 });
 
