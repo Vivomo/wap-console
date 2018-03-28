@@ -97,7 +97,7 @@ class WapConsole {
      *
      */
     prev() {
-        if (this.historyIndex === null) {
+        if (this.historyIndex === null && this.history.length > 0) {
             this.historyIndex = this.history.length - 1;
         } else if (this.historyIndex > 0) {
             this.historyIndex --;
@@ -135,6 +135,7 @@ class WapConsole {
         }
         content.innerHTML = WapConsole._createHtml(...args);
         this.output.appendChild(content);
+        this.output.scrollTop = this.output.scrollHeight;
     }
 
     /**

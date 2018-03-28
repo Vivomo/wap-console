@@ -52,6 +52,11 @@ $border: 2px solid $theme;
     }
 
     .console-output {
+        max-height: 80%;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            width: 4px;
+        }
 
         .input-log, .output-log {
             position: relative;
