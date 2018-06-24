@@ -7,12 +7,16 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cp .hooks/* .git/hooks/"
   },
   "repository": {
     "type": "git",
     "url": "wap-console:Vivomo/wap-console.git"
   },
   "author": "Vimo",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.0.0"
+  }
 }

@@ -160,5 +160,4 @@ class WapConsole {
         return args.map((arg) => (`<span class="${typeof arg}">${arg}</span>`)).join(' ');
     }
 
-
 }

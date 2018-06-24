@@ -69,6 +69,8 @@ class WapConsole {
         if (this.history[this.history.length - 1] !== code) {
             this.history.push(code);
         }
+
+
         this.historyIndex = null;
     }
 
